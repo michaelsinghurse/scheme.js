@@ -10,14 +10,10 @@ function repl() {
 
   if (input === 'exit') return; 
 
-  if (input === 'clear') {
-    console.clear();
-  } else {
-    try {
-      print(evaluate(parse(input), GLOBAL_ENV));
-    } catch (err) {
-      print(['error', err]);
-    }
+  try {
+    print(evaluate(parse(input), GLOBAL_ENV));
+  } catch (err) {
+    print(['error', err]);
   }
 
   repl();
